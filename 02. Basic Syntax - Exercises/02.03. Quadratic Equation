@@ -1,0 +1,33 @@
+//Write a program that enters the coefficients a, b, and c of a quadratic equation a * x2 + b * x + c = 0 
+//and calculates and prints its real solutions. 
+
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+int main()
+{
+    double a, b, c;
+    double root{}, discriminant{};
+
+    cin >> a >> b >> c;
+
+    discriminant = sqrt(b * b - (4 * a * c));
+    if ((b*b - (4 * a * c)) < 0)
+    {
+        cout << "no roots" << endl;
+    }
+    else if (discriminant == 0)
+    {
+        root = -b / (2.0 * a);
+        cout << root << endl;
+    }
+    else if (discriminant > 0)
+    {
+        root = (-b + discriminant) / (2.0 * a);
+        cout << root << " ";
+        root = (-b - discriminant) / (2.0 * a);
+        cout << root << endl;
+    }
+    return 0;
+}
