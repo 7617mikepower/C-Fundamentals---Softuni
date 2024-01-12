@@ -1,0 +1,30 @@
+//Create a function that prints the sign of an integer number n.
+
+#include <iostream>
+using namespace std;
+
+void signFunction(int a)
+{
+    if (a>0)
+    {
+        cout << "The number " << a << " is positive." << endl;
+    }
+    else if (a<0)
+    {
+        cout << "The number " << a << " is negative." << endl;
+    }
+    else
+    {
+        cout << "The number " << a << " is zero." << endl;
+    }
+}
+
+int main()
+{
+    int a;
+    cin >> a ;
+
+    signFunction(a);
+
+    return 0;
+}
