@@ -1,0 +1,37 @@
+//Write a program that prints the next n odd numbers (starting from 1) and on the last row prints the sum of them.
+
+#include <iostream>
+#include<climits>
+
+using namespace std;
+
+int main()
+
+{
+    int minNumber = INT_MAX;
+    int oddNumber;
+    int counter = 0;
+    int sum = 0;
+
+    cin >> oddNumber;
+
+
+    for (size_t i {1}; i <= minNumber; i++)
+    {
+        if (i % 2 != 0)
+        {
+            counter++;
+            sum += i;
+            cout << i << endl;
+            if (counter == oddNumber)
+            {
+                break;
+            }
+        }
+    }
+
+    cout << "Sum: " << sum << endl;
+
+    return 0;
+}
+
