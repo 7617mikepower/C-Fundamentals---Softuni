@@ -1,0 +1,18 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main()
+{
+    string name;
+    int age;
+    double studentGrade;
+
+    cin >> name >> age >> studentGrade;
+
+    cout.setf(ios::fixed);
+    cout.precision(2);
+    cout << "Name: " << name << ", Age: " << age << ", Grade: " << studentGrade << endl;
+
+    return 0;
+}
