@@ -1,0 +1,26 @@
+//Write a program that takes as an input a grade (floating-point number).
+//Prints:
+//•	"Passed!" if the grade is equal or more than 3.00
+//•	"Failed!" if the grade is lower than 3.00
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main()
+{
+    double studentGrade;
+
+    cin >> studentGrade;
+
+    cout.setf(ios::fixed);
+    cout.precision(2);
+
+    if (studentGrade >= 3.00){
+        cout << "Passed!" << endl;
+    } else {
+    cout << "Failed!" << endl;
+    }
+
+    return 0;
+}
