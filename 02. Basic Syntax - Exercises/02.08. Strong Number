@@ -1,0 +1,40 @@
+//Write a program that:
+//•	Reads an integer number N
+//•	Check whether a given number is strong
+//Number is strong if the sum of the Factorial of each digit is equal to the number.
+//For example: 145 is a strong number, because 1! + 4! + 5! = 145
+
+#include <iostream>
+using namespace std;
+
+int factorialOfNumber(int a)
+{
+    int factorial = 1;
+    for (size_t i{1}; i<=a; i++ )
+    {
+        factorial *=i;
+    }
+    return factorial;
+}
+
+int main()
+{
+    int a,b;
+    cin >> a ;
+    b=a;
+    int number;
+
+    while(a > 0)
+    {
+        number += factorialOfNumber(a % 10);
+        a = a/10;
+    }
+
+    if (number == b)
+    {
+        cout << "yes" << endl;
+    }
+    else cout << "no" << endl;
+
+    return 0;
+}
