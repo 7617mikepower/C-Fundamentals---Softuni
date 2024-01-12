@@ -1,0 +1,31 @@
+//Write a program that prints the language that a given country speaks. You can receive only the following combinations:
+//•	English is spoken in England and USA
+//•	Spanish is spoken in Spain, Argentina and Mexico
+//•	For the others we should print "unknown"
+
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+int main()
+{
+    string country;
+
+    cin >> country;
+
+    if(country == "USA" || country == "England")
+    {
+        cout << "English" << endl;
+    }
+    else if (country == "Spain" || country == "Argentina" || country == "Mexico")
+    {
+        cout << "Spanish" << endl;
+    }
+    else
+    {
+        cout << "unknown" << endl;
+    }
+
+    return 0;
+}
