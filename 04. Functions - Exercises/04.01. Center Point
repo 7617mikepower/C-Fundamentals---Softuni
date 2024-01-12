@@ -1,0 +1,28 @@
+//Create a method that prints the point that is closest to the center
+//of the coordinate system (0, 0) in the format (X, Y).
+
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+
+void cartesian(double a, double b, double c, double d)
+{
+    double radius1 = sqrt((a*a)+(b*b));
+    double radius2 = sqrt((c*c)+(d*d));
+
+    if (radius1 <= radius2)
+    {
+        cout << "(" << a << ", " << b << ")" << endl;
+    }
+    else cout << "(" << c << ", " << d << ")" << endl;
+}
+
+int main()
+{
+    double a,b,c,d;
+    cin >> a >> b >> c >> d;
+
+    cartesian(a,b,c,d);
+    return 0;
+}
