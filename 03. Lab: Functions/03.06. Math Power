@@ -1,0 +1,20 @@
+//Create a function that calculates and returns the value of a number raised to a given power.
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+
+void power(int a, int b)
+{
+    cout << pow(a,b) << endl;
+    }
+
+
+int main()
+{
+    int a,b;
+    cin >> a >> b;
+
+    power(a,b);
+    return 0;
+}
