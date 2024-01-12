@@ -1,0 +1,19 @@
+//Create a function that calculates and returns the area of a rectangle by given width and height.
+#include <iostream>
+
+using namespace std;
+
+void rectangle(int a, int b)
+{
+    cout << (a*b) << endl;
+    }
+
+
+int main()
+{
+    int a,b;
+    cin >> a >> b;
+
+    rectangle(a,b);
+    return 0;
+}
