@@ -1,0 +1,42 @@
+//Write a function that receives a grade between 2.00 and 6.00.
+
+#include <iostream>
+using namespace std;
+
+void grade(double a)
+{
+    if (a>=2.00 && a<=2.99)
+    {
+        cout << "Fail" << endl;
+    }
+    else if (a>=3.00 && a<=3.49)
+    {
+        cout << "Poor" << endl;
+    }
+    else if (a>=3.50 && a<=4.49)
+    {
+        cout << "Good" << endl;
+    }
+    else if (a>=4.50 && a<=5.49)
+    {
+        cout << "Very good" << endl;
+    }
+    else if (a>=5.50 && a<=6.00)
+    {
+        cout << "Excellent" << endl;
+    }
+}
+
+int main()
+{
+    double a;
+    cin >> a ;
+    if(!(a>=2.00 && a<=6.00 ))
+    {
+        cout << "Error!" << endl;
+    }
+    else
+        grade(a);
+
+    return 0;
+}
