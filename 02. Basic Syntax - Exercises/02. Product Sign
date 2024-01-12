@@ -1,0 +1,40 @@
+//Write a program that shows the sign (+ or -) of the product of three real numbers without calculating it.
+//•	Read 3 real numbers from the console (on a single line, separated by spaces)
+//•	Print the sign of their product (if the product is 0, print '+')
+
+#include <iostream>
+
+int main()
+{
+    int a,b,c;
+    std::cin >> a >> b >> c;
+
+    int count = 0;
+
+    if (a ==0 || b ==0 || c==0)
+    {
+        std::cout << "+" << std::endl;
+        return 0;
+    }
+    if (a < 0)
+    {
+        count++;
+    }
+
+    if (b < 0)
+    {
+        count++;
+    }
+
+    if (c < 0)
+    {
+        count++;
+    }
+
+    if(count % 2 == 0)
+    {
+        std::cout << "+" << std::endl;
+    }
+    else std::cout << "-" << std::endl;
+    return 0;
+}
