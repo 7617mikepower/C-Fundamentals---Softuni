@@ -1,0 +1,30 @@
+//Write a function to print the smallest of three integer numbers. Use an appropriate name for the function.
+
+#include <iostream>
+using namespace std;
+
+int smallest (int a, int b)
+{
+    if (a > b)
+    {
+        cout << b << endl;
+    }
+    else cout << a << endl;
+}
+
+int smallest (int a, int b, int c)
+{
+    if (a > b)
+    {
+        return smallest (b, c);
+    }
+    else return smallest (a, c);
+}
+
+int main()
+{
+    int a,b,c;
+    cin >> a >> b >> c;
+    smallest (a,b,c);
+    return 0;
+}
