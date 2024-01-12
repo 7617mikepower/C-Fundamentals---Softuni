@@ -1,0 +1,25 @@
+//Write a program that: 
+//•	Read an integer number (start number) on the first line from the console
+//•	Read an integer number (end number) on the second line from the console
+//•	Print numbers from given start number to given end number
+//•	Print their sum in the following format: "Sum: {sum}"
+
+#include <iostream>
+using namespace std;
+
+int main()
+{
+
+    int a,b;
+    cin >> a >> b;
+
+    int sum;
+    for (int i = a; a <= b; a++){
+        sum +=a;
+        cout << a << " " ;
+    }
+    cout << endl;
+
+cout << "Sum: " << sum << endl;
+    return 0;
+}
