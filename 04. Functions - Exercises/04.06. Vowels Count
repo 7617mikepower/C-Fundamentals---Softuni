@@ -1,0 +1,41 @@
+//Write a program that find the count of the vowels contained in the text.
+
+#include <iostream>
+#include<string>
+using namespace std;
+
+bool checkFunction(char a)
+{
+    string vowels = "aeiouAEIOU";
+    for (size_t i = 0; i<vowels.size(); i++)
+    {
+          if (a == vowels[i])
+        {
+            return true;
+        }
+    }
+      return false;
+}
+
+int main()
+{
+    string text;
+    cin >> text ;
+
+    bool number;
+    int sumVowels = 0;
+    int sumOthers = 0;
+
+    for (size_t i = 0; i<text.size() ; i++)
+    {
+        number = checkFunction(text[i]);
+        if (number)
+        {
+            sumVowels ++;
+        }
+        else sumOthers ++;
+    }
+
+    cout << sumVowels << endl;
+    return 0;
+}
