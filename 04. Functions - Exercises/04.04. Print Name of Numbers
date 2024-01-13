@@ -1,0 +1,168 @@
+//Write a program that, given an integer number in the range [0, 9999],
+// prints the name of that number in English
+
+#include <iostream>
+using namespace std;
+
+void onesFunction (int a)
+{
+    switch (a)
+    {
+    case 1:
+        cout << "one";
+        break;
+    case 2:
+        cout << "two";
+        break;
+    case 3:
+        cout << "three";
+        break;
+    case 4:
+        cout << "four";
+        break;
+    case 5:
+        cout << "five";
+        break;
+    case 6:
+        cout << "six";
+        break;
+    case 7:
+        cout << "seven";
+        break;
+    case 8:
+        cout << "eight";
+        break;
+    case 9:
+        cout << "nine";
+        break;
+    default:
+        break;
+    }
+}
+
+void decimalFunction(int a)
+{
+    switch (a)
+    {
+    case 2:
+        cout << "twenty ";
+        break;
+    case 3:
+        cout << "thirty ";
+        break;
+    case 4:
+        cout << "fourty ";
+        break;
+    case 5:
+        cout << "fifty ";
+        break;
+    case 6:
+        cout << "sixty ";
+        break;
+    case 7:
+        cout << "seventy ";
+        break;
+    case 8:
+        cout << "eighty ";
+        break;
+    case 9:
+        cout << "ninety ";
+        break;
+    default:
+        break;
+    }
+}
+
+void decimalFrom11To19(int a)
+{
+    switch (a)
+    {
+    case 1:
+        cout << "eleven ";
+        break;
+    case 2:
+        cout << "twelve ";
+        break;
+    case 3:
+        cout << "thirteen ";
+        break;
+    case 4:
+        cout << "fourteen ";
+        break;
+    case 5:
+        cout << "fifteen ";
+        break;
+    case 6:
+        cout << "sixteen ";
+        break;
+    case 7:
+        cout << "seventeen ";
+        break;
+    case 8:
+        cout << "eighteen ";
+        break;
+    case 9:
+        cout << "nineteen ";
+        break;
+    default:
+        break;
+    }
+}
+
+
+int main()
+{
+    int number;
+
+    cin >> number;
+    while (number < 0 || number > 9999)
+    {
+        cout << "Enter valid number:" << endl;
+        cin >> number;
+    }
+    if (number == 0)
+    {
+        cout << "zero" << endl;
+        return 0;
+    }
+
+
+    int ones = number % 10;
+    int tens = (number/10) % 10;
+    int hundreds = (number/100) % 10;
+    int thousands = number/1000;
+
+    if (thousands !=0)
+    {
+        onesFunction(thousands);
+        cout << " thousand " ;
+    }
+    if (hundreds !=0)
+    {
+        onesFunction(hundreds);
+        cout << " hundred " ;
+    }
+    if (ones == 0 && tens == 1) 
+    {
+        cout << "ten";
+    }
+    if (tens !=0 && tens > 1)
+    {
+        decimalFunction(tens);
+    }
+    else if (tens !=0 && tens < 20)
+    {
+        decimalFrom11To19(ones);
+        return 0;
+    }
+    if (ones!=0 && tens >1) 
+    {
+        onesFunction(ones);
+    }
+    if (ones!=0 && tens == 0) 
+    {
+        onesFunction(ones);
+    }
+
+return 0;
+}
