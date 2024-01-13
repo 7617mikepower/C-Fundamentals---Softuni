@@ -1,0 +1,47 @@
+//Write a program that reads a string on the first line from the console,
+//representing a product - "coffee",  "water", "coke" or "snacks".
+//Create a function that calculates and prints the total price of an order.
+
+#include <iostream>
+#include<string>
+using namespace std;
+
+double costFunction(string product, int quantity)
+{
+    if (product == "coffee")
+    {
+        return quantity * 1.50;
+    }
+    else if (product == "water")
+    {
+        return quantity * 1.00;
+    }
+    else if (product == "coke")
+    {
+        return quantity * 1.40;
+    }
+    else if (product == "snacks")
+    {
+        return quantity * 2.00;
+    }
+    else
+    {
+        cout << "No such product" << endl;
+        return 0;
+    }
+}
+
+int main()
+{
+    string product;
+    cin >> product;
+
+    int quantity;
+    cin >> quantity;
+
+    cout.setf(ios::fixed);
+    cout.precision(2);
+    cout << costFunction(product, quantity) << endl;
+
+    return 0;
+}
