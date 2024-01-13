@@ -1,0 +1,53 @@
+//Write a program that receives two integer numbers and one of the following
+//four instructions (as a single symbol): +, -, *, / on the next line.
+
+#include <iostream>
+using namespace std;
+
+double calculator(int a, int b, char c)
+{
+    switch (c)
+    {
+    case '+':
+        return a + b;
+        break;
+    case '-':
+        return a - b;
+        break;
+    case '*':
+        return a * b;
+        break;
+    case '/':
+        if (b!=0)
+        {
+            return double(a)/b;
+        }
+        else
+        {
+            cout << "Can't divide by zero." << endl;
+            cout << "Enter valid number two" << endl;
+            cin >> b;
+            return calculator(a,b,c);
+        }
+        break;
+    }
+}
+
+int main()
+{
+    int a,b;
+    cin >> a >> b;
+
+    char c;
+    while (cin >> c)
+    {
+        if (c == '+' || c == '-' || c == '*' || c == '/')
+        {
+            cout << calculator(a,b,c) << endl;
+            break;
+        }
+        else cout << "Enter valid operator!" << endl;
+    }
+
+    return 0;
+}
