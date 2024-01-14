@@ -1,0 +1,34 @@
+//Reverse the given array. Print reversed array on a single line (space separated).
+
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+int main()
+{
+    const int elements = 10;
+    string arrayStrings[elements] {};
+    int number;
+    cin >> number;
+
+    if (number <= elements)
+    {
+        for (size_t i {0}; i<number ; i++)
+        {
+            cin >>  arrayStrings[i];
+        }
+
+        for (size_t a {number}; a>=1 ; a--)
+        {
+            cout << arrayStrings[a-1] << " ";
+        }
+    }
+    else
+    {
+        cout << "Not enough memory for this array!" << endl;;
+        return -1;
+    }
+
+    return 0;
+}
