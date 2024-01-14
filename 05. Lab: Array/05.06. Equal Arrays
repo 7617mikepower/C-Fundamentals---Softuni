@@ -1,4 +1,6 @@
-// Calculate the difference between the sum of the even and the sum of the odd numbers in an array
+// If the arrays are identical, find the sum of the first one and print on the console the following message: 
+//Otherwise find the first index where the arrays differ and print on the console following message: 
+
 #include <iostream>
 
 using namespace std;
