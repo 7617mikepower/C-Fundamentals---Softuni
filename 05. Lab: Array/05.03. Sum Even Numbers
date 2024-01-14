@@ -1,0 +1,36 @@
+//Write a program that sum only the even numbers from the given array.
+
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    const int elements = 100;
+    int arrayNumbers[elements] {};
+    int number;
+    int sum = 0;
+    cin >> number;
+
+    if (number <= elements)
+    {
+        for (size_t i {0}; i<number ; i++)
+        {
+            cin >>  arrayNumbers[i];
+        }
+        for (auto a : arrayNumbers)
+        {
+            if (a%2==0)
+            {
+                sum += a;
+            }
+        }
+    }
+    else
+    {
+        cout << "Not enough memory for this array!" << endl;;
+        return -1;
+    }
+    cout << sum << endl;
+    return 0;
+}
