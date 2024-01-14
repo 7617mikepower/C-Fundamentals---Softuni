@@ -1,0 +1,52 @@
+// Calculate the difference between the sum of the even and the sum of the odd numbers in an array
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    const int elements = 100;
+    int arrayNumbers1[elements] {};
+    int arrayNumbers2[elements] {};
+    int number;
+    int counter = 0;
+    int sum = 0;
+
+    cin >> number;
+
+    if (number <= elements)
+    {
+        for (size_t i {0}; i<number ; i++)
+        {
+            cin >>  arrayNumbers1[i];
+        }
+        for (size_t i {0}; i<number ; i++)
+        {
+            cin >>  arrayNumbers2[i];
+        }
+        for (size_t i {0}; i<number ; i++)
+        {
+            if (arrayNumbers1[i] == arrayNumbers2[i])
+            {
+                counter++;
+                sum += arrayNumbers1[i];
+            }
+            else
+            {
+                cout << "Arrays are not identical. Found difference at " << i << " index. " << endl;
+                return 0;
+            }
+        }
+        if (counter == number)
+        {
+            cout << "Arrays are identical. Sum: " << sum << endl;
+        }
+    }
+    else
+    {
+        cout << "Not enough memory for this array!" << endl;;
+        return -1;
+    }
+
+    return 0;
+}
