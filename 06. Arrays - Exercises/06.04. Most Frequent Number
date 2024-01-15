@@ -23,16 +23,17 @@ bool getArray(int arr[], unsigned &arrSize) // by reference
 
 void sortArray(int arr[], unsigned arrSize)
 {
-    int repeter = 100;
     sort(arr, arr + arrSize);//Sorting array
 
+    int repeter = arr[0];                   
+    cout << arr[0] << " ";
+    for(size_t i {1}; i < arrSize; i++)
     {
-        for(size_t i {0}; i < arrSize; i++)
-            if (arr[i] != repeter)
-            {
-                cout << arr[i] << " ";
-                repeter = arr[i];
-            }
+       if (arr[i] != repeter)
+        {
+            cout << arr[i] << " ";
+            repeter = arr[i];
+        }
     }
 }
 
