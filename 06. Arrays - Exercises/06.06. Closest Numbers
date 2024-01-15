@@ -1,0 +1,70 @@
+#include <iostream>
+#include<algorithm>
+#include<climits>
+
+using namespace std;
+
+const unsigned maxSize = 100;
+bool getArray(int arr[], unsigned &arrSize) // by reference
+{
+    cin >> arrSize;
+    if (arrSize > 0 && arrSize <= maxSize)
+    {
+        for(size_t i {0}; i<arrSize; i++)
+        {
+            cin >> arr[i];
+        }
+        return true;
+    }
+    else
+        return false;
+}
+
+void sortArray(int arr[], unsigned arrSize)
+{
+    sort(arr, arr + arrSize);//Sorting array
+
+}
+
+void printArray(int arr[], unsigned arrSize)
+{
+    for(size_t i {0}; i < arrSize; i++)
+        cout << arr[i] << " ";
+    cout << endl;
+}
+
+int main()
+{
+    int arr[maxSize] {};
+    unsigned arrSize;
+    int difference = INT_MAX;
+    int minDifference = INT_MAX;
+
+    if(getArray(arr, arrSize) == false)
+    {
+        cout << "Invalid number for scope!" << endl;
+        return -1;
+    }
+
+    sortArray(arr, arrSize);
+
+    for (size_t i{0}; i<arrSize; i++)
+    {
+        for (size_t a{0}; a<arrSize; a++)
+        {
+            if ((arr[i] != arr[a]))
+            {
+                difference =(arr[i] - arr[a]);
+                if (abs(difference) < minDifference)
+                {
+                    minDifference = abs(difference);
+                }
+            }
+            else {if (difference = minDifference);}
+        }
+
+    }
+    if (minDifference == INT_MAX){minDifference = 0;}
+    cout << minDifference << endl;
+    return 0;
+}
