@@ -1,0 +1,54 @@
+#include <iostream>
+
+using namespace std;
+
+const unsigned maxSize = 100;
+bool getArray(int arr[], unsigned &arrSize) // by reference
+{
+    cin >> arrSize;
+    if (arrSize > 0 && arrSize <= maxSize)
+    {
+        for(size_t i {0}; i<arrSize; i++)
+        {
+            cin >> arr[i];
+        }
+        return true;
+    }
+    else
+        return false;
+}
+
+void printArray(int arr[], unsigned arrSize)
+{
+    for(size_t i {0}; i < arrSize; i++)
+        cout << arr[i] << " ";
+    cout << endl;
+}
+
+int main()
+{
+    int arr[maxSize] {};
+    unsigned arrSize;
+    int sum, average;
+
+    if(getArray(arr, arrSize) == false)
+    {
+        cout << "Invalid number for scope!" << endl;
+        return -1;
+    }
+
+    for(auto a: arr)
+    {
+        sum +=a;
+    }
+    average = sum / arrSize;
+
+    for (size_t i{0}; i<arrSize; i++)
+    {
+        if(arr[i]>=average)
+        {
+            cout << arr[i] << " ";
+        }
+    }
+    return 0;
+}
