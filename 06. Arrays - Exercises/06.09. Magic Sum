@@ -1,4 +1,4 @@
-//Print all top integers. Top integer is an integer that is bigger than all the elements to its right
+//Print two pairs that gives Magic Sum
 
 #include <iostream>
 
