@@ -20,19 +20,11 @@ bool getArray(int arr[], unsigned &arrSize) // by reference
         return false;
 }
 
-void printArray(int arr[], unsigned arrSize)
-{
-    for(size_t i {0}; i < arrSize; i++)
-        cout << arr[i] << " ";
-}
-
 int main()
 {
     int arr[maxSize] {};
     unsigned arrSize;
 
-    int counter = 0;
-    int currentNumber = 0;
     int magicSum;
 
     if(getArray(arr, arrSize) == false)
