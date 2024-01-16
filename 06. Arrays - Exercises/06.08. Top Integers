@@ -1,0 +1,60 @@
+//Print all top integers. Top integer is an integer that is bigger than all the elements to its right
+
+#include <iostream>
+
+using namespace std;
+
+const unsigned maxSize = 100;
+bool getArray(int arr[], unsigned &arrSize) // by reference
+{
+    cin >> arrSize;
+    if (arrSize > 0 && arrSize <= maxSize)
+    {
+        for(size_t i {0}; i<arrSize; i++)
+        {
+            cin >> arr[i];
+        }
+        return true;
+    }
+    else
+        return false;
+}
+
+void printArray(int arr[], unsigned arrSize)
+{
+    for(size_t i {0}; i < arrSize; i++)
+        cout << arr[i] << " ";
+}
+
+int main()
+{
+    int arr[maxSize] {};
+    unsigned arrSize;
+
+    int counter = 0;
+    int currentNumber = 0;
+
+    if(getArray(arr, arrSize) == false)
+    {
+        cout << "Invalid number for scope!" << endl;
+        return -1;
+    }
+
+    for (size_t i{0}; i<arrSize; i++)  
+    {
+        for(size_t a {i+1}; a < arrSize; a++)   
+        {
+            counter++;
+            if (arr[i] > arr[a])  
+                currentNumber++;      
+        }
+        if (counter == currentNumber)
+        {
+                cout << arr[i]<< " ";
+        }
+        counter = 0;
+        currentNumber = 0;
+    }
+
+return 0;
+}
