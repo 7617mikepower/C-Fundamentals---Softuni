@@ -1,0 +1,33 @@
+#include<iostream>
+#include<string>
+#include<sstream>
+using namespace std;
+
+int main()
+{
+    string str;
+
+    getline(cin, str);
+    istringstream stream(str);
+    string temp;
+    while (getline(stream >> ws, temp, ','))
+    {
+        if (temp.size() >= 3 && temp.size() <= 16)
+        {
+            int counter = 0;
+            for (int i = 0; i < temp.size(); i++)
+            {
+                if ((temp[i] >=48 && temp[i]<=57) || (temp[i] >=65 && temp[i]<=90) || (temp[i] >=97 && temp[i]<=122) || temp[i] == 45 || temp[i] == 95)
+                {
+                    counter++;
+                }
+            }
+            if (counter == temp.size())
+            {
+                cout << temp << endl;
+            }
+        }
+    }
+
+    return 0;
+}
