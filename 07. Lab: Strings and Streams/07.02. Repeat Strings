@@ -1,0 +1,26 @@
+#include<iostream>
+#include<string>
+#include<sstream>
+
+using namespace std;
+
+int main()
+{
+    string str{};
+
+    getline(cin, str);
+
+    istringstream stream(str);
+    string temp;
+    
+    while(stream >> temp)
+    {
+
+        for (size_t i{0}; i<temp.size(); i++)
+        {
+            cout << temp;
+        }
+    }
+
+    return 0;
+}
