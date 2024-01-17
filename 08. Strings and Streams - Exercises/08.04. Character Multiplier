@@ -1,0 +1,39 @@
+#include<iostream>
+#include<string>
+
+using namespace std;
+
+int main()
+{
+    string str1{};
+    string str2{};
+
+    cin >> str1 >> str2;
+
+    int strSizeForLoop;
+    int sum = 0;
+
+    if (str1.size() > str2.size())
+    {
+        strSizeForLoop = str1.size();
+    }
+    else strSizeForLoop = str2.size();
+
+    for (size_t i{0}; i<strSizeForLoop; i++)
+    {
+        int a = (str1[i]);
+        int b = (str2[i]);
+
+        sum += a*b;
+        if (a == 0)
+        {
+            sum+=(str2[i]);
+        }
+        if (b == 0)
+        {
+            sum+=(str1[i]);
+        }
+    }
+    cout << sum;
+    return 0;
+}
