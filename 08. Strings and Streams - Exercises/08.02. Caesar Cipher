@@ -1,0 +1,19 @@
+#include<iostream>
+#include<string>
+
+using namespace std;
+
+int main()
+{
+    string str{};
+
+    getline(cin, str);
+
+    for (size_t i{0}; i<str.size(); i++)
+    {
+        char temp = str[i] +3;
+        cout << temp;
+    }
+
+    return 0;
+}
