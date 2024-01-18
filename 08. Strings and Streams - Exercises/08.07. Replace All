@@ -1,0 +1,25 @@
+#include<iostream>
+#include<string>
+
+using namespace std;
+
+int main()
+{
+    string str{};
+
+    getline(cin >>ws,str);
+    string toFind;
+    string toReplace;
+    cin >> toFind >> toReplace;
+
+    int indexFound = str.find(toFind);
+    while(indexFound != string::npos)
+    {
+        str.replace(indexFound, toFind.size(), toReplace);
+        indexFound = str.find(toFind,indexFound+toReplace.size());
+    }
+    cout << str << endl;
+
+    return 0;
+}
+
