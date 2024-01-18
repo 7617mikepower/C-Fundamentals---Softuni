@@ -1,0 +1,36 @@
+#include<iostream>
+#include<string>
+
+using namespace std;
+
+int main()
+{
+    string str{};
+
+    cin >> str;
+
+    int counter = 0;
+
+    for (size_t i{0}; i<str.size(); i++)
+    {
+        if (str[i] == 41 && counter <=0)
+        {
+            cout << "incorrect" << endl;
+            return 0;
+        }
+        else if (str[i] == 40)
+        {
+            counter++;
+        }
+        else if (str[i] == 41)
+        {
+            counter--;
+        }
+    }
+    if (counter %2 ==0)
+    {
+        cout << "correct" << endl;
+    }
+    else cout << "incorrect" << endl;
+    return 0;
+}
