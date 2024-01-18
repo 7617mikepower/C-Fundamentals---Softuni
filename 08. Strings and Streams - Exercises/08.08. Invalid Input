@@ -1,0 +1,42 @@
+#include <iostream>
+#include<string>
+#include<sstream>
+using namespace std;
+
+void extractIntegerWords(string str)
+{
+    istringstream ss(str);
+    ostringstream os;
+
+    string temp;
+
+    int foundNumber{};
+    int sum{};
+    string foundWord;
+
+    while (ss >> temp)
+    {
+        if (stringstream(temp) >> foundNumber)
+        {
+            sum +=foundNumber;
+        }
+        else
+        {
+            stringstream(temp) >> foundWord;
+            os << foundWord << " ";
+        }
+    }
+    cout << sum << endl;
+    cout << os.str();
+}
+
+
+int main()
+{
+    string line;
+    getline(cin, line);
+
+    extractIntegerWords(line);
+    return 0;
+
+}
