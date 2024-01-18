@@ -1,0 +1,29 @@
+#include<iostream>
+#include<string>
+
+using namespace std;
+
+int main()
+{
+    string str{};
+
+    getline(cin >>ws,str);
+
+
+    for (size_t i{0}; i<str.size(); i++)
+    {
+        if (!((str[i] >=65 && str[i] <=90) || (str[i] >=97 && str[i] <=122)))
+        {
+            if (str[i+1] >=97 && str[i+1] <=122)
+            {
+                str[i+1] -= ('a'- 'A');
+            }
+        }
+        if (str[0] >=97 && str[0] <=122)
+            {
+            str[0] -= ('a'- 'A');
+            }
+    }
+    cout << str << endl;
+    return 0;
+}
