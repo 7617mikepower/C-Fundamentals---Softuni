@@ -1,0 +1,33 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <string>
+
+void print(std::vector<std::string> items)
+{
+    for(size_t i = 0; i<items.size(); i++)
+    {
+        std::cout << i+1 << '.' << items[i] << std::endl;
+    }
+}
+
+
+int main()
+{
+    std::vector<std::string> products;
+    int sequence;
+    std::cin >> sequence;
+    for(size_t i{0}; i<sequence; i++)
+    {
+        std::string food;
+        std::cin >> food;
+        products.push_back(food);
+    }
+    std::sort(products.begin(), products.end());
+
+    print(products);
+
+
+    return 0;
+}
+
