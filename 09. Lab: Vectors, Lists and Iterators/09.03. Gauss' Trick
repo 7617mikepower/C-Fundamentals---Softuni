@@ -1,0 +1,56 @@
+#include <iostream>
+#include <vector>
+#include <sstream>
+#include <string>
+
+void print(std::vector<int> items)
+{
+    for(auto n : items)
+    {
+
+        std::cout << n << ' ';
+    }
+    std::cout << std::endl;
+}
+
+
+void sumTrick (std::vector<int> items)
+{
+    std::vector<int>::iterator first;
+    std::vector<int>::iterator last = items.end();
+
+    for (first = items.begin(); first != last; first++)
+    {
+        int a = *first ;
+        int b = *(--last);
+        if (first !=last)
+        {
+            std::cout << a + b << ' ';
+        }
+        else if (first == last)
+            {
+                std::cout << a << ' ';
+                break;
+            }
+    }
+
+}
+
+int main()
+{
+    std::vector<int> numbers;
+    std::string str;
+    getline(std::cin >> std::ws,str);
+    std::istringstream s (str);
+
+    int number;
+    while(s>>number)
+    {
+        numbers.push_back(number);
+    }
+
+    sumTrick(numbers);
+
+
+    return 0;
+}
