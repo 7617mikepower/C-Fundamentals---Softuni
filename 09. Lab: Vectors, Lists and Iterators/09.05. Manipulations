@@ -1,0 +1,94 @@
+#include <iostream>
+#include <list>
+#include <sstream>
+#include <string>
+#include <algorithm>
+
+using namespace std;
+
+void getList(std::list<int> &items)
+{
+    std::string str;
+
+    getline(std::cin >> std::ws,str);
+    std::istringstream s (str);
+
+    int number;
+    while(s>>number)
+    {
+        items.push_back(number);
+    }
+}
+
+void print(std::list<int> items)
+{
+    for(auto n : items)
+    {
+
+        std::cout << n << ' ';
+    }
+    std::cout << std::endl;
+}
+
+
+int main()
+{
+    std::list<int> numbers;
+
+    getList(numbers);
+
+    std::string command;
+    getline(std::cin >> std::ws,command);
+
+    while(command != "end")
+    {
+        std::stringstream s(command);
+        std::string cmd;
+        int number, index;
+        while(!s.eof())
+        {
+            if(s>>cmd)
+            {
+                if (cmd == "Add")
+                {
+                    s >> number;
+                    numbers.push_back(number);
+                }
+
+                if (cmd == "Remove")
+                {
+                    s >> number;
+                    list<int>::iterator itr = find(numbers.begin(), numbers.end(), number);
+                    if(itr != numbers.end())
+                    numbers.erase(itr);
+                }
+                if (cmd == "RemoveAt")
+                {
+                    s >> number;
+                    list<int>::iterator itr = numbers.begin();
+                    for (size_t i{0}; i<number; i++)
+                    {
+                        itr++;
+                    }
+                    if(itr != numbers.end())
+                    numbers.erase(itr);
+                }
+                if (cmd == "Insert")
+                {
+                    s >> number;
+                    s >> index;
+                    list<int>::iterator itr = numbers.begin();
+                    for (size_t i{0}; i<index; i++)
+                    {
+                        itr++;
+                    }
+                    numbers.insert((itr), number);
+                }
+                getline(std::cin >> std::ws,command);
+            }
+        }
+    }
+    print(numbers);
+
+    return 0;
+}
