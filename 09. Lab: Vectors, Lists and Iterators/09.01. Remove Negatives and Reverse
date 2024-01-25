@@ -1,0 +1,46 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <sstream>
+#include <string>
+
+void print(std::vector<int> items)
+{
+    for(auto n : items)
+    {
+        std::cout << n << ' ';
+    }
+    std::cout << std::endl;
+}
+
+
+int main()
+{
+    std::vector<int> numbers;
+    std::string str;
+    getline(std::cin >> std::ws,str);
+    std::istringstream s (str);
+
+    int number;
+    while(s>>number)
+    {
+        if (number >0)
+        {
+            numbers.push_back(number);
+        }
+    }
+
+    std::reverse(numbers.begin(), numbers.end());
+
+    if (numbers.empty())
+    {
+       std::cout << "empty" << std::endl;
+    }
+    else
+    {
+        print(numbers);
+    }
+
+    return 0;
+}
+
