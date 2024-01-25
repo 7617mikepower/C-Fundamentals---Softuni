@@ -1,0 +1,67 @@
+#include <iostream>
+#include <vector>
+#include <sstream>
+#include <string>
+
+void getVector(std::vector<int> &items)
+{
+    std::string str;
+
+    getline(std::cin >> std::ws,str);
+    std::istringstream s (str);
+
+    int number;
+    while(s>>number)
+    {
+        items.push_back(number);
+    }
+}
+
+void print(std::vector<int> items)
+{
+    for(auto n : items)
+    {
+
+        std::cout << n << ' ';
+    }
+    std::cout << std::endl;
+}
+
+
+
+int main()
+{
+    std::vector<int> numbers1, numbers2, merged;
+
+    getVector(numbers1);
+    getVector(numbers2);
+
+    if (numbers1.size() > numbers2.size())
+    {
+        for (size_t i{0}; i<numbers1.size(); i++)
+        {
+            merged.push_back(numbers1[i]);
+            if (i < numbers2.size())
+            {
+                merged.push_back(numbers2[i]);
+            }
+        }
+    }
+    else
+    {
+        for (size_t i{0}; i<numbers2.size(); i++)
+        {
+            if (i < numbers1.size())
+            {
+                merged.push_back(numbers1[i]);
+            }
+            merged.push_back(numbers2[i]);
+        }
+    }
+
+  //  print(numbers1);
+ //   print(numbers2);
+    print(merged);
+
+    return 0;
+}
