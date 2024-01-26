@@ -1,0 +1,93 @@
+#include <iostream>
+#include <list>
+#include <sstream>
+#include <string>
+
+
+void getList(std::list<char> &brackets)
+{
+    std::string str;
+
+    getline(std::cin >> std::ws,str);
+    std::istringstream s (str);
+
+    char temp;
+    while(s>>temp)
+    {
+        brackets.push_back(temp);
+    }
+}
+
+void printChar(std::list<char> brackets)
+{
+    for(auto n : brackets)
+    {
+        std::cout << n << ' ';
+    }
+    std::cout << std::endl;
+}
+
+
+int main()
+{
+    bool valid = true;
+    char prevBracket;
+    std::list<char> brackets;
+
+    getList(brackets);
+
+    std::list<char>::iterator it = brackets.begin();
+
+    int roundCounter = 0;
+    int curlyCounter = 0;
+    int squareCounter = 0;
+
+    if (*it == '}' || *it == ']' || *it == ')')
+        valid = false;
+
+    while (it != brackets.end() && valid)
+    {
+        switch(*it)
+        {
+        case '{' :
+            curlyCounter++; break;
+        case '[':
+            squareCounter++; break;
+        case '(':
+            roundCounter++; break;
+        case '}':
+            curlyCounter--; break;
+        case ']':
+            squareCounter--; break;
+        case ')':
+            roundCounter--; break;
+        }
+
+        if (
+            (prevBracket == '(' && (*it == '[' || *it == ']' || *it == '{' || *it == '}'))
+            ||
+            (prevBracket == '[' && (*it == '{' || *it == '}'))
+            ||
+            (prevBracket == ']' && *it == ')')
+            ||
+            (prevBracket == '}' && (*it == ']' || *it == ')'))
+            )
+            valid = false;
+
+        prevBracket = *it;
+        it++;
+
+    }
+    if (curlyCounter != 0 || squareCounter != 0 || roundCounter != 0)
+        valid = false;
+
+    std::cout << (valid ? "valid" : "invalid");
+    return 0;
+
+
+
+
+    printChar(brackets);
+
+    return 0;
+}
