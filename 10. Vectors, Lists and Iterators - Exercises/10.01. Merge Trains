@@ -1,0 +1,79 @@
+#include <iostream>
+#include <list>
+#include <sstream>
+#include <string>
+
+
+void getList(std::list<int> &railCar)
+{
+    std::string str;
+
+    getline(std::cin >> std::ws,str);
+    std::istringstream s (str);
+
+    int number;
+    while(s>>number)
+    {
+        railCar.push_front(number);
+    }
+}
+
+void printInt(std::list<int> railCar)
+{
+    for(auto n : railCar)
+    {
+        std::cout << n << ' ';
+    }
+    std::cout << std::endl;
+}
+
+
+int main()
+{
+    std::list<int> railCar1, railCar2, merged;
+    std::string letters;
+    getList(railCar1);
+    getList(railCar2);
+
+    std::list<int>::iterator it1 = railCar1.begin();
+    std::list<int>::iterator it2 = railCar2.begin();
+
+    while(it1 != railCar1.end() || it2 != railCar2.end())
+    {
+        if(it1 != railCar1.end() && it2 != railCar2.end())
+        {
+            if (*it1 < *it2)
+            {
+                merged.push_front(*it1);
+                letters +=('A');
+                it1++;
+            }
+            else
+            {
+                merged.push_front(*it2);
+                letters +=('B');
+                it2++;
+            }
+        }
+        else
+        {
+            if (it1 != railCar1.end())
+            {
+                merged.push_front(*it1);
+                letters +=('A');
+                it1++;
+            }
+            else
+            {
+                merged.push_front(*it2);
+                letters +=('B');
+                it2++;
+            }
+        }
+    }
+
+    std::cout << letters << std::endl;
+    printInt(merged);
+
+    return 0;
+}
