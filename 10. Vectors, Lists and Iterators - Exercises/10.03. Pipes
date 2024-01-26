@@ -1,0 +1,49 @@
+#include <iostream>
+#include <list>
+#include <sstream>
+
+void getList(std::list<int> &items)
+{
+    std::string str;
+
+    getline(std::cin >> std::ws,str);
+    std::istringstream s (str);
+
+    int number;
+    while(s>>number)
+    {
+        items.push_back(number);
+    }
+}
+
+void print(std::list<int> items)
+{
+    for(auto n : items)
+    {
+        std::cout << n << ' ';
+    }
+    std::cout << std::endl;
+}
+
+int main()
+{
+    int pipes;
+    std::cin >> pipes;
+
+    std::list<int> checkup, instalation;
+    getList(checkup);
+    getList(instalation);
+
+    std::list<int>::iterator it1 = checkup.begin();
+    std::list<int>::iterator it2 = instalation.begin();
+
+ while(it1 != checkup.end() || it2 != instalation.end())
+    {
+        unsigned amortization = (*it2) - (*it1);
+        unsigned lifetime = (*it2) / amortization;
+        std::cout << lifetime << " ";
+        it1++;
+        it2++;
+    }
+    return 0;
+}
