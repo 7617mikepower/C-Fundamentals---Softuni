@@ -1,0 +1,81 @@
+#include <iostream>
+#include <string>
+#include <vector>
+#include <sstream>
+
+using namespace std;
+
+int main()
+{
+	int counter = 1;
+	string str;
+	getline(cin >> ws, str);
+
+	vector<int> numbers;
+	int tempN = 0;
+	string tempS;
+
+	while (str != "end")
+	{
+		if (istringstream(str) >> tempN)
+		{
+			numbers.push_back(tempN);
+		}
+		if (istringstream(str) >> tempS && numbers.size() > 0)
+		{
+			vector<int>::iterator it = numbers.end();
+			it--;
+			int a = *it;
+
+			if (tempS == "sum" && it != numbers.begin())
+			{
+				numbers.pop_back();
+				it = numbers.end();
+				it--;
+				int sum = a + *it;
+				numbers.pop_back();
+				numbers.push_back(sum);
+			}
+			if (tempS == "subtract" && it != numbers.begin())
+			{
+				numbers.pop_back();
+				it = numbers.end();
+				it--;
+				int sum = a - *it;
+				numbers.pop_back();
+				numbers.push_back(sum);
+			}
+			if (tempS == "concat" && it != numbers.begin())
+			{
+				if (a >= 0)
+				{
+					numbers.pop_back();
+					it = numbers.end();
+					it--;
+					int b = *it;
+					int sum = b * 10 + a;
+					numbers.pop_back();
+					numbers.push_back(sum);
+				}
+			}
+			if (tempS == "discard" && it != numbers.begin())
+			{
+				numbers.pop_back();
+			}
+		}
+
+		counter++;
+		if (counter > 50)
+		{
+			cout << "Operations: " << counter - 1 << endl;
+			break;
+		}
+		getline(cin >> ws, str);
+	}
+	for (auto s : numbers)
+	{
+		cout << s << endl;
+	}
+	return 0;
+}
+
