@@ -25,7 +25,7 @@ int main()
 	getline(cin, str);
 
 	istringstream ss(str);
-	string temp, buf;
+	string temp;
 	ostringstream newString;
 	int counter = 0;
 	while (ss >> temp)
