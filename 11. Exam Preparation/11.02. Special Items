@@ -1,0 +1,64 @@
+#include <iostream>
+#include <string>
+#include <sstream>
+
+using namespace std;
+
+bool checkMagic(char symbol)
+{
+	char magicSymbols[]{ 'a', 'e', 'i', 'o', 'u' };
+	for (size_t i = 0; i < sizeof(magicSymbols) / sizeof(magicSymbols[0]); i++)
+	{
+		if (symbol == magicSymbols[i])
+		{
+			return true;
+		}
+	}
+	return false;
+}
+
+int main()
+{
+	bool flag = true;
+	string str;
+
+	getline(cin, str);
+
+	istringstream ss(str);
+	string temp, buf;
+	ostringstream newString;
+	int counter = 0;
+	while (ss >> temp)
+	{
+		for (size_t i = 0; i < temp.size(); i++)
+		{
+			if (temp[i] == temp[i + 1])
+			{
+				if (bool flag = checkMagic(temp[i]))
+				{
+					newString << temp[i];
+				}
+				else
+				{
+					if (counter < 1)
+					{
+						newString << temp[i];
+						counter++;
+					}
+				}
+			}
+			else
+			{
+				if (counter < 1)
+				newString << temp[i];
+				counter = 0;
+			}
+		}
+		newString << " ";
+		
+	}
+	cout << newString.str();
+
+	return 0;
+}
+
