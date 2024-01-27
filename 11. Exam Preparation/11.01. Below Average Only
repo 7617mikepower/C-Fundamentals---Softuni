@@ -1,20 +1,25 @@
 #include <iostream>
-using namespace std;
 
-const int maxSize = 100;
-
-int getArr(int arr[], int length)
+int calcAverage(int arr[], int length)
 {
     int sum = 0;
-    int sumOdd = 0;
-    int sumEven = 0;
-
     for(size_t i{0}; i<length; i++)
     {
-        cin >> arr[i];
+        std::cin >> arr[i];
         sum += arr[i];
     }
-    int average = sum / length;
+    return sum/length;
+}
+
+int main()
+{
+    int length;
+    std::cin >> length;
+    int* arr = new int[length];
+
+    int sumOdd = 0;
+    int sumEven = 0;
+    int average = calcAverage(arr, length);
 
     for(size_t i{0}; i<length; i++)
     {
@@ -28,20 +33,8 @@ int getArr(int arr[], int length)
                 sumEven += arr[i];
         }
     }
-return sumOdd*sumEven;
-}
-
-int main()
-{
-    int length;
-    cin >> length;
-    int arr[maxSize]{};
-
-    if (length <= maxSize)
-    {
-     cout << getArr(arr, length)<< endl;
-    }
-    else return -1;
+    std::cout << sumOdd*sumEven << std::endl;
+    delete[] arr;
 
     return 0;
 }
