@@ -1,0 +1,38 @@
+#include <iostream>
+#include <cctype>
+#include <string>
+#include <sstream>
+#include <vector>
+#include <map>
+
+void printDublicate (std::vector<int> nums)
+{
+	std::map<int, int> dups;
+	for (int i : nums)
+		++dups[i];
+	for (auto& dup : dups)
+		std::cout << dup.first << " symbol sentences: " << dup.second  << std::endl;
+}
+
+int main()
+{
+	std::string str;
+	getline(std::cin >> std::ws, str);
+	std::istringstream ss(str);
+	std::vector<int>repetitions;
+
+	while (getline(ss >> std::ws, str, '|'))
+	{
+		int counter = 0;
+		for (auto s : str)
+		{
+			if (ispunct(s))
+				counter++;
+		}
+		repetitions.push_back(counter);
+	}
+
+
+	printDublicate (repetitions);
+	return 0;
+}
