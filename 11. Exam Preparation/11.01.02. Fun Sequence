@@ -1,0 +1,66 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+void print(std::vector<int> v)
+{
+	for (auto s : v)
+	{
+		std::cout << s << " ";
+	}
+}
+
+int calcAverage(int arr[], int length)
+{
+	int sum = 0;
+	for (size_t i{ 0 }; i < length; i++)
+	{
+		std::cin >> arr[i];
+		if (arr[i] > -1000000 && arr[i] < 1000000)
+		{
+			sum += arr[i];
+		}
+		else i--;
+	}
+	return sum / length;
+}
+
+const size_t arrSize = 50;
+
+int main()
+{
+	int length;
+	std::cin >> length;
+	if (length > arrSize || length<= 0)
+	{
+		std::cout << "No" << std::endl;
+		return -1;
+	}
+	int* arr = new int[length];
+
+	std::vector<int> newStr;
+
+	int average = calcAverage(arr, length);
+
+	for (size_t i{ 0 }; i < length; i++)
+	{
+		if ((arr[i] < average) && (arr[i] % 2 == 0))
+		{
+			newStr.push_back(arr[i]);
+		}
+
+	}
+		if (newStr.empty())
+	{
+		std::cout << "No" << std::endl;
+	}
+	else
+	{
+			sort(newStr.begin(), newStr.end(), std::greater<int>());
+			print(newStr);
+	}
+
+	delete[] arr;
+
+	return 0;
+}
