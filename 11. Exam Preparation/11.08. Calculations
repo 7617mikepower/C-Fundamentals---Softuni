@@ -1,0 +1,59 @@
+#include <iostream>
+#include <string>
+#include <sstream>
+#include <cctype>
+
+int main()
+{
+    int curValue = 0, preValue = 0, buf = 0, digit = 0;
+    std::string str, temp;
+    char command;
+    getline(std::cin, str);
+
+    std::istringstream ss (str);
+    while(ss >> temp)
+    {
+        if(std::istringstream(temp) >> digit)
+        {
+            preValue = curValue;
+            curValue = digit;
+        }
+        else if (std::istringstream(temp) >> command)
+        {
+            switch(command)
+            {
+            case '+':
+                buf = preValue;
+                preValue = curValue;
+                curValue = buf + curValue;
+
+                break;
+            case '-':
+                buf = preValue;
+                preValue = curValue;
+                curValue = buf - curValue;
+                break;
+            case '*':
+                buf = preValue;
+                preValue = curValue;
+                curValue = buf * curValue;
+                break;
+            case '/':
+                if (curValue != 0)
+                {
+                    buf = preValue;
+                    preValue = curValue;
+                    curValue = buf / curValue;
+                }
+                break;
+            default:
+            return -1;
+            }
+        }
+
+    }
+
+    std::cout << curValue << " " << preValue << std::endl;
+    return 0;
+}
+
