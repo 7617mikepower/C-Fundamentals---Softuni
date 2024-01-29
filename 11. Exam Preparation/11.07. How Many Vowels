@@ -1,0 +1,60 @@
+#include <iostream>
+#include <string>
+#include <cctype>
+
+unsigned const maxSize {100};
+
+void getArr(char arr [], int charSize)
+{
+    for(size_t i{0}; i<charSize; i++)
+    {
+        std::cin >> arr [i];
+    }
+}
+
+int main()
+{
+    char arr[maxSize] {};
+    int arrSize;
+    std::cin >> arrSize;
+
+    bool flag = false;
+
+    if(arrSize < 0 && arrSize > maxSize)
+    {
+        return -1;
+    }
+
+    getArr(arr, arrSize);
+    std::string vowels {"aeiouyAEIOUY"};
+    size_t alpha = 0, alphaNonV = 0, nonalpha = 0;
+
+    for(size_t i{0}; i<arrSize; i++)
+    {
+        if (!(isalpha(arr[i])))
+        {
+            nonalpha++;
+        }
+        else
+        {
+            for (size_t a{0}; a<vowels.size(); a++)
+            {
+                if (arr[i] == vowels[a])
+                {
+                    alpha++;
+                    flag = true;
+                    break;
+                }
+            }
+            if (!flag)
+            {
+                alphaNonV++;
+            }
+            else 
+                flag = false;
+        }
+    }
+    std::cout << alpha << " " << alphaNonV << std::endl;
+    return 0;
+}
+
