@@ -1,0 +1,79 @@
+#include <iostream>
+#include <string>
+#include <sstream>
+#include <vector>
+#include <cctype>
+#include<algorithm>
+
+void printTrain (std::vector<std::string> v)
+{
+    for (auto s : v)
+    {
+        std::cout << "|" << s;
+    }
+    std::cout << "|" << std::endl;
+}
+
+int main()
+{
+    std::string wagon;
+    getline(std::cin >> std::ws, wagon);
+    std::vector<std::string> train;
+
+    while(wagon !="end")
+    {
+        if (wagon == "empty")
+        {
+            train.push_back(" ");
+        }
+        else
+            train.push_back(wagon);
+        getline(std::cin >> std::ws, wagon);
+    }
+
+    std::string command;
+    getline(std::cin>> std::ws,command);
+
+    while(command != "E")
+    {
+        char symbol;
+        std::string buffer;
+        int oldPos = 0, newPos = 0;
+
+        for(size_t i=0; i<command.size(); i++)
+        {
+            if (isalpha(command[i]))
+            {
+                symbol = command[i];
+            }
+            else if (isdigit(command[i]))
+            {
+                oldPos = newPos;
+                newPos = (command[i] - '0')-1;
+            }
+        }
+        switch(symbol)
+        {
+        case 'P':
+            printTrain(train);
+            break;
+        case 'E':
+            return 0;
+        case 'M':
+            buffer = train[oldPos];
+            train.erase(train.begin() + oldPos);
+            train.insert(train.begin()+ newPos, buffer);
+            printTrain(train);
+            break;
+        case 'L':
+            train.erase(train.begin()+newPos);
+            printTrain(train);
+        default:
+           return -1;
+        }
+        getline(std::cin>> std::ws,command);
+    }
+
+    return 0;
+}
+
